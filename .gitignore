@@ -1,31 +1,17 @@
-# Build
+# Maven
 target/
-build/
-out/
-*.jar
 
 # IDE
 .idea/
 *.iml
+*.ipr
+*.iws
 .vscode/
-.classpath
-.project
 .settings/
+.project
+.classpath
 
-# Logs
-*.log
-
-# OS
+# OS / misc
 .DS_Store
 Thumbs.db
-
-# Maven/Gradle
-.mvn/
-.gradle/
-gradlew
-gradlew.bat
-pom.xml
-build.gradle
-build.gradle.kts
-settings.gradle
-settings.gradle.kts
+*.log

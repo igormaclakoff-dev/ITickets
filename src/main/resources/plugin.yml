@@ -1,5 +1,5 @@
 name: ITickets
-version: '1.0.0'
+version: '${project.version}'
 main: com.auracode.itickets.ITicketsPlugin
 description: Система тикетов и обращений для игроков и персонала.
 author: AuraCode
