@@ -1,0 +1,116 @@
+plugin:
+  reloaded: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>Конфиги перезагружены.</green>"
+
+input:
+  create: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>Напиши текст обращения в чат.</gray> <click:run_command:'/iticket cancel'><hover:show_text:'<gray>Отменить ввод'><red>[Отмена]</red></hover></click>"
+  comment: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>Напиши ответ в тикет</gray> <white>#%id%</white> <click:run_command:'/iticket cancel'><hover:show_text:'<gray>Отменить ввод'><red>[Отмена]</red></hover></click>"
+  close: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>Напиши причину закрытия</gray> <white>#%id%</white> <click:run_command:'/iticket cancel'><hover:show_text:'<gray>Отменить ввод'><red>[Отмена]</red></hover></click>"
+  note: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>Напиши текст внутренней заметки.</gray> <dark_gray>видят только сотрудники</dark_gray> <click:run_command:'/iticket cancel'><hover:show_text:'<gray>Отменить ввод'><red>[Отмена]</red></hover></click>"
+  cancelled: "<dark_gray>[<gold>IT</gold>]</dark_gray> <yellow>Ввод отменен.</yellow>"
+  nothing-to-cancel: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>Сейчас нечего отменять.</gray>"
+
+errors:
+  no-permission: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Недостаточно прав для этого действия.</red>"
+  only-player: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Эта команда доступна только игроку.</red>"
+  unknown-command: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Неизвестная подкоманда.</red>"
+  usage: "<dark_gray>[<gold>IT</gold>]</dark_gray> <yellow>Использование: <gray>%usage%</gray></yellow>"
+  invalid-number: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>ID тикета должен быть числом.</red>"
+  ticket-not-found: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Тикет не найден.</red>"
+  ticket-deleted: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Этот тикет удален и недоступен для изменения.</red>"
+  ticket-not-open: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Действие доступно только для открытого тикета.</red>"
+  ticket-not-closed: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Переоткрыть можно только закрытый тикет.</red>"
+  ticket-not-deleted: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Окончательно удалить можно только уже удаленный тикет.</red>"
+  player-not-found: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Игрок сейчас не найден на сервере.</red>"
+  world-not-found: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Мир тикета не найден. Возможно, он был удален или переименован.</red>"
+  creation-banned: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Тебе временно запрещено создавать тикеты.</red>"
+  category-no-permission: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>У тебя нет доступа к этой категории.</red>"
+  empty-message: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Сообщение не может быть пустым.</red>"
+  message-too-long: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Сообщение слишком длинное. Максимум: <yellow>%max%</yellow><red> символов.</red>"
+  open-limit: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>У тебя уже есть максимум открытых тикетов: <yellow>%limit%</yellow><red>.</red>"
+  cooldown: "<dark_gray>[<gold>IT</gold>]</dark_gray> <yellow>Подожди еще <gray>%seconds% сек.</gray><yellow> перед созданием нового тикета.</yellow>"
+  rate-not-owner: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Оценить тикет может только его автор.</red>"
+  rate-not-closed: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Оценить можно только закрытый тикет.</red>"
+  rate-already: "<dark_gray>[<gold>IT</gold>]</dark_gray> <yellow>Этот тикет уже оценен.</yellow>"
+  rate-invalid: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Оценка должна быть от 1 до 5.</red>"
+  category-not-found: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Категория не найдена.</red>"
+  export-failed: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Не удалось выполнить экспорт. Проверь лог сервера.</red>"
+ticket:
+  created: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>Создан</green> <dark_gray>▸</dark_gray> <white>#%id%</white> <gray>персонал уведомлен</gray> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  comment-added: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>Отправлено</green> <dark_gray>▸</dark_gray> <white>#%id%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  closed: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>Закрыт</green> <dark_gray>▸</dark_gray> <white>#%id%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  reopened: "<dark_gray>[<gold>IT</gold>]</dark_gray> <yellow>Переоткрыт</yellow> <dark_gray>▸</dark_gray> <white>#%id%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  deleted: "<dark_gray>[<gold>IT</gold>]</dark_gray> <yellow>Удален</yellow> <dark_gray>▸</dark_gray> <white>#%id%</white> <click:run_command:'/iticket staff'><hover:show_text:'<gray>Меню персонала'><white>[Персонал]</white></hover></click>"
+  purged: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Стерт</red> <dark_gray>▸</dark_gray> <white>#%id%</white> <click:run_command:'/iticket staff'><hover:show_text:'<gray>Меню персонала'><white>[Персонал]</white></hover></click>"
+  assigned: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>Назначен</green> <dark_gray>▸</dark_gray> <white>#%id%</white> <gray>на</gray> <white>%assigned%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  assigned-self: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>В работе</green> <dark_gray>▸</dark_gray> <white>#%id%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  already-taken: "<dark_gray>[<gold>IT</gold>]</dark_gray> <yellow>#%id% уже в твоей работе.</yellow>"
+  priority-updated: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>Важность</gray> <dark_gray>▸</dark_gray> <white>#%id%</white> <dark_gray>·</dark_gray> %priority_colored%"
+  category-updated: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>Категория</gray> <dark_gray>▸</dark_gray> <white>#%id%</white> <dark_gray>·</dark_gray> <white>%category_plain%</white>"
+  note-added: "<dark_gray>[<gold>IT</gold>]</dark_gray> <aqua>Заметка добавлена</aqua> <dark_gray>▸</dark_gray> <white>#%id%</white> <dark_gray>·</dark_gray> <gray>видна только персоналу</gray>"
+  note-line: "<dark_gray>•</dark_gray> <gray>%author%</gray> <dark_gray>[%time%]</dark_gray> <white>%text%</white>"
+  exported: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>Экспорт</green> <dark_gray>▸</dark_gray> <gray>тикетов</gray> <white>%count%</white> <dark_gray>·</dark_gray> <white>%file%</white>"
+  teleported: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>Телепорт</green> <dark_gray>▸</dark_gray> <white>#%id%</white>"
+  creation-ban-added: "<dark_gray>[<gold>IT</gold>]</dark_gray> <yellow>%player%</yellow> <gray>лишен права создавать тикеты.</gray>"
+  creation-ban-removed: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>%player%</green> <gray>снова может создавать тикеты.</gray>"
+  stats: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>статистика</gray> <dark_gray>·</dark_gray> <green>открыто %open%</green> <dark_gray>·</dark_gray> <yellow>закрыто %closed%</yellow> <dark_gray>·</dark_gray> <red>удалено %deleted%</red>"
+  info: "<dark_gray>[<gold>IT</gold>]</dark_gray> <white>#%id%</white> <dark_gray>·</dark_gray> <white>%player%</white> <dark_gray>·</dark_gray> %category% <dark_gray>·</dark_gray> %priority_colored% <dark_gray>·</dark_gray> %status_colored%"
+
+stats:
+  global: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>статистика</gray> <dark_gray>·</dark_gray> <green>открыто %open%</green> <dark_gray>·</dark_gray> <aqua>в работе %in_progress%</aqua> <dark_gray>·</dark_gray> <yellow>закрыто %closed%</yellow> <dark_gray>·</dark_gray> <red>удалено %deleted%</red> <dark_gray>·</dark_gray> <white>оценено %rated%</white> <dark_gray>·</dark_gray> <gray>средний</gray> <yellow>%avg%</yellow>"
+  personal: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>твои тикеты</gray> <dark_gray>·</dark_gray> <green>%open% открыто</green> <dark_gray>·</dark_gray> <yellow>%closed% закрыто</yellow> <dark_gray>·</dark_gray> <red>%deleted% удалено</red> <dark_gray>·</dark_gray> <white>оценено %rated%</white>"
+  admin: "<dark_gray>[<gold>IT</gold>]</dark_gray> <white>%admin%</white> <dark_gray>·</dark_gray> <gray>в работе %assigned%</gray> <dark_gray>·</dark_gray> <gray>закрыто %closed%</gray> <dark_gray>·</dark_gray> <gray>оценено %rated%</gray> <dark_gray>·</dark_gray> <gray>средний</gray> <yellow>%avg%</yellow>"
+  admin-empty: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>У администратора</gray> <white>%admin%</white> <gray>нет обработанных тикетов.</gray>"
+  top-header: "<dark_gray>[<gold>IT</gold>]</dark_gray> <white>Рейтинг администрации</white> <dark_gray>·</dark_gray> <gray>по оценкам игроков</gray>"
+  top-entry: "<dark_gray>%rank%.</dark_gray> <white>%admin%</white> <dark_gray>·</dark_gray> %rating% <dark_gray>·</dark_gray> <gray>оценок %rated%, средний</gray> <yellow>%avg%</yellow>"
+  top-empty: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>Оценок администрации пока нет.</gray>"
+
+history:
+  header: "<dark_gray>[<gold>IT</gold>]</dark_gray> <white>История</white> <dark_gray>·</dark_gray> <white>%admin%</white> <dark_gray>·</dark_gray> <gray>найдено %count%</gray>"
+  entry: "<dark_gray>#%id%</dark_gray> <dark_gray>·</dark_gray> %category% <dark_gray>·</dark_gray> %status% <dark_gray>·</dark_gray> %rating% <dark_gray>·</dark_gray> <dark_gray>%updated%</dark_gray> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[открыть]</white></hover></click>"
+  empty: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>У администратора</gray> <white>%admin%</white> <gray>нет обработанных тикетов.</gray>"
+
+rating:
+  request: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>Тикет</gray> <white>#%id%</white> <gray>закрыт. Как выполнил работу администратор</gray> <white>%admin%</white><gray>?</gray>"
+  done: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>Спасибо за оценку:</green> <yellow>%rating%</yellow> <gray>по тикету</gray> <white>#%id%</white>"
+
+notify:
+  new-ticket: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>Новое</green> <dark_gray>▸</dark_gray> <white>#%id%</white> <gray>от</gray> <white>%player%</white> <dark_gray>·</dark_gray> %category% <dark_gray>·</dark_gray> <gray>важность</gray> %priority_colored% <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click> <click:suggest_command:'/iticket comment %id% '><hover:show_text:'<gray>Подготовить ответ'><green>[Ответить]</green></hover></click>"
+  player-comment: "<dark_gray>[<gold>IT</gold>]</dark_gray> <white>%player%</white> <gray>▸</gray> <white>#%id%</white> <dark_gray>·</dark_gray> <white>%last_message%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click> <click:suggest_command:'/iticket comment %id% '><hover:show_text:'<gray>Подготовить ответ'><green>[Ответить]</green></hover></click>"
+  staff-closed: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>Закрыто</gray> <dark_gray>▸</dark_gray> <white>#%id%</white> <dark_gray>·</dark_gray> <gray>%close_reason%</gray> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  staff-taken: "<dark_gray>[<gold>IT</gold>]</dark_gray> <aqua>В работе</aqua> <dark_gray>▸</dark_gray> <white>#%id%</white> <dark_gray>·</dark_gray> <white>%admin%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  owner-taken: "<dark_gray>[<gold>IT</gold>]</dark_gray> <aqua>В работе</aqua> <dark_gray>▸</dark_gray> <gray>твой тикет</gray> <white>#%id%</white> <gray>взял</gray> <white>%admin%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  rating: "<dark_gray>[<gold>IT</gold>]</dark_gray> <yellow>Оценка</yellow> <dark_gray>▸</dark_gray> <white>%player%</white> <gray>оценил</gray> <white>#%id%</white> <dark_gray>·</dark_gray> %rating% <dark_gray>·</dark_gray> <gray>админ:</gray> <white>%admin%</white>"
+  staff-join-header: "<dark_gray>[<gold>IT</gold>]</dark_gray> <white>ITickets</white> <dark_gray>·</dark_gray> <gray>сводка заявок</gray>"
+  staff-join-stats: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>открыто</gray> <yellow>%open%</yellow> <dark_gray>·</dark_gray> <gray>в работе</gray> <aqua>%in_progress%</aqua> <dark_gray>·</dark_gray> <gray>тебе</gray> <white>%assigned%</white> <dark_gray>·</dark_gray> <gray>без ответственного</gray> <red>%unassigned%</red>"
+  staff-join-extra: "<dark_gray>[<gold>IT</gold>]</dark_gray> <dark_gray>закрыто %closed% · удалено %deleted%</dark_gray>"
+  staff-join-latest: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>последний</gray> <white>#%latest_id%</white> <gray>от</gray> <white>%latest_player%</white> <click:run_command:'/iticket view %latest_id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  staff-join-empty: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>Открытых тикетов сейчас нет.</green>"
+  staff-join-command: "<dark_gray>[<gold>IT</gold>]</dark_gray> <click:run_command:'/iticket staff'><hover:show_text:'<gray>Открыть меню персонала'><gray>[Меню персонала]</gray></hover></click>"
+  reminder: "<dark_gray>[<gold>IT</gold>]</dark_gray> <yellow>Напоминание</yellow> <dark_gray>▸</dark_gray> <gray>без ответа:</gray> <white>%count%</white> <dark_gray>·</dark_gray> <gray>старейший</gray> <white>#%oldest%</white> <gray>от</gray> <white>%oldest_player%</white> <click:run_command:'/iticket staff'><hover:show_text:'<gray>Открыть меню персонала'><gray>[Персонал]</gray></hover></click>"
+  owner-autoclosed: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>Автозакрытие</gray> <dark_gray>▸</dark_gray> <gray>твой тикет</gray> <white>#%id%</white> <gray>закрыт автоматически</gray> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  owner-comment: "<dark_gray>[<gold>IT</gold>]</dark_gray> <aqua>Ответ</aqua> <dark_gray>▸</dark_gray> <gray>тикет</gray> <white>#%id%</white> <dark_gray>·</dark_gray> <white>%last_message%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click> <click:suggest_command:'/iticket comment %id% '><hover:show_text:'<gray>Ответить'><green>[Ответить]</green></hover></click>"
+  owner-closed: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>Закрыт</green> <dark_gray>▸</dark_gray> <gray>тикет</gray> <white>#%id%</white> <dark_gray>·</dark_gray> <gray>%close_reason%</gray> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  owner-reopened: "<dark_gray>[<gold>IT</gold>]</dark_gray> <yellow>Переоткрыт</yellow> <dark_gray>▸</dark_gray> <gray>тикет</gray> <white>#%id%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click> <click:suggest_command:'/iticket comment %id% '><hover:show_text:'<gray>Ответить'><green>[Ответить]</green></hover></click>"
+  offline-header: "<dark_gray>[<gold>IT</gold>]</dark_gray> <white>ITickets</white> <dark_gray>·</dark_gray> <gray>пока тебя не было: <white>%count%</white> уведомлений</gray>"
+
+help:
+  header: "<dark_gray>[<gold>IT</gold>]</dark_gray> <white>ITickets</white> <dark_gray>·</dark_gray> <gray>команды</gray>"
+  player: "<white>Игрок</white>"
+  staff: "<yellow>Персонал</yellow>"
+  admin: "<red>Администрация</red>"
+  line: "<dark_gray>  ▸ </dark_gray><white>%command%</white> <dark_gray>-</dark_gray> <gray>%description%</gray>"
+
+reset:
+  confirm-required: "<dark_gray>[<gold>IT</gold>]</dark_gray> <red>Внимание! Это удалит ВСЕ тикеты и уведомления. Подтверди: <white>/iticket reset confirm</white></red>"
+  done: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>База тикетов очищена.</green>"
+
+offline:
+  owner-comment: "<dark_gray>[<gold>IT</gold>]</dark_gray> <aqua>Ответ</aqua> <dark_gray>▸</dark_gray> <gray>тикет</gray> <white>#%id%</white> <dark_gray>·</dark_gray> <white>%last_message%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click> <click:suggest_command:'/iticket comment %id% '><hover:show_text:'<gray>Ответить'><green>[Ответить]</green></hover></click>"
+  owner-autoclosed: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>Автозакрытие</gray> <dark_gray>▸</dark_gray> <gray>тикет</gray> <white>#%id%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  owner-taken: "<dark_gray>[<gold>IT</gold>]</dark_gray> <aqua>В работе</aqua> <dark_gray>▸</dark_gray> <gray>тикет</gray> <white>#%id%</white> <gray>взял</gray> <white>%admin%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  owner-closed: "<dark_gray>[<gold>IT</gold>]</dark_gray> <green>Закрыт</green> <dark_gray>▸</dark_gray> <gray>тикет</gray> <white>#%id%</white> <dark_gray>·</dark_gray> <gray>%close_reason%</gray> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click>"
+  owner-reopened: "<dark_gray>[<gold>IT</gold>]</dark_gray> <yellow>Переоткрыт</yellow> <dark_gray>▸</dark_gray> <gray>тикет</gray> <white>#%id%</white> <click:run_command:'/iticket view %id%'><hover:show_text:'<gray>Открыть тикет'><white>[Открыть]</white></hover></click> <click:suggest_command:'/iticket comment %id% '><hover:show_text:'<gray>Ответить'><green>[Ответить]</green></hover></click>"
+
+templates:
+  empty: "<dark_gray>[<gold>IT</gold>]</dark_gray> <gray>Шаблонов ответа пока нет. Добавь их в</gray> <white>templates.yml</white><gray>.</gray>"
+

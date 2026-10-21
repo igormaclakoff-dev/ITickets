@@ -1,0 +1,38 @@
+# ITickets 1.0.0
+# Paper/Purpur 1.21.x
+
+settings:
+  # Задержка между тикетами от одного игрока.
+  cooldown-seconds: 60
+
+  # Лимит открытых тикетов без права itickets.bypass.limit.
+  max-open-tickets: 3
+
+  # Максимальная длина текста тикета и комментария.
+  max-message-length: 500
+
+  # Количество тикетов на странице GUI.
+  tickets-per-page: 45
+
+  # Перехватывать следующее сообщение игрока после клика в GUI.
+  capture-chat-inputs: true
+
+  # Автоматическое закрытие неактивных тикетов.
+  auto-close:
+    enabled: false
+    days: 7
+    reason: "Автозакрытие: нет активности"
+
+  # Напоминания персоналу о тикетах без ответа.
+  reminders:
+    enabled: false
+    interval-minutes: 30
+    after-minutes: 60
+
+  # Формат дат в сообщениях и GUI.
+  date-format: "dd.MM.yyyy HH:mm"
+  time-zone: "Europe/Moscow"
+
+  gui-click-sound:
+    enabled: true
+    sound: "UI_BUTTON_CLICK"

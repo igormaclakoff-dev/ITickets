@@ -1,0 +1,48 @@
+# Памятка по правам ITickets.
+# Основные права уже объявлены в plugin.yml, этот файл нужен как удобная документация.
+
+player:
+  - "itickets.use"
+  - "itickets.create"
+  - "itickets.view.own"
+  - "itickets.comment.own"
+  - "itickets.close.own"
+  - "itickets.category.bug.create"
+  - "itickets.category.player_report.create"
+  - "itickets.category.rules.create"
+  - "itickets.category.items.create"
+  - "itickets.category.donate.create"
+  - "itickets.category.question.create"
+  - "itickets.category.other.create"
+
+staff:
+  - "itickets.staff"
+  - "itickets.staff.gui"
+  - "itickets.view.all"
+  - "itickets.view.closed"
+  - "itickets.comment.staff"
+  - "itickets.assign"
+  - "itickets.manage"
+  - "itickets.close"
+  - "itickets.reopen"
+  - "itickets.teleport"
+  - "itickets.notify.create"
+  - "itickets.notify.comment"
+  - "itickets.notify.close"
+  - "itickets.notify.join"
+  - "itickets.notify.rating"
+
+admin:
+  - "itickets.admin"
+  - "itickets.view.deleted"
+  - "itickets.delete"
+  - "itickets.purge"
+  - "itickets.stats"
+  - "itickets.history"
+  - "itickets.reload"
+  - "itickets.reset"
+  - "itickets.export"
+  - "itickets.ban"
+  - "itickets.unban"
+  - "itickets.bypass.cooldown"
+  - "itickets.bypass.limit"

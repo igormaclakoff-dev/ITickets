@@ -1,0 +1,76 @@
+# Категории тикетов. Можно добавлять свои разделы в categories.
+# permission можно оставить пустым, если категория доступна всем с itickets.create.
+# Для ресурспаков можно добавить custom-model-data: 12345.
+# Если поле не указано, модель предмета не меняется.
+
+categories:
+  bug:
+    name: "Баг"
+    material: "REDSTONE_TORCH"
+    slot: 10
+    amount: 1
+    glow: false
+    color: "<gray>"
+    permission: "itickets.category.bug.create"
+    description:
+      - "<dark_gray>Ошибки сервера, механик, предметов или команд.</dark_gray>"
+  player_report:
+    name: "Жалоба на игрока"
+    material: "IRON_SWORD"
+    slot: 11
+    amount: 1
+    glow: false
+    color: "<gray>"
+    permission: "itickets.category.player_report.create"
+    description:
+      - "<dark_gray>Читы, токсичность, гриферство или подозрительное поведение.</dark_gray>"
+  rules:
+    name: "Нарушение правил"
+    material: "BOOK"
+    slot: 12
+    amount: 1
+    glow: false
+    color: "<gray>"
+    permission: "itickets.category.rules.create"
+    description:
+      - "<dark_gray>Ситуации, где нужна оценка администрации.</dark_gray>"
+  items:
+    name: "Потеря вещей"
+    material: "CHEST"
+    slot: 13
+    amount: 1
+    glow: false
+    color: "<gray>"
+    permission: "itickets.category.items.create"
+    description:
+      - "<dark_gray>Пропажа предметов, откаты, спорные смерти.</dark_gray>"
+  donate:
+    name: "Донат / покупка"
+    material: "EMERALD"
+    slot: 14
+    amount: 1
+    glow: false
+    color: "<gray>"
+    permission: "itickets.category.donate.create"
+    description:
+      - "<dark_gray>Платежи, привилегии, ключи и покупки.</dark_gray>"
+  question:
+    name: "Вопрос"
+    material: "COMPASS"
+    slot: 15
+    amount: 1
+    glow: false
+    color: "<gray>"
+    permission: "itickets.category.question.create"
+    description:
+      - "<dark_gray>Когда нужна подсказка от персонала.</dark_gray>"
+  other:
+    name: "Другое"
+    material: "PAPER"
+    slot: 16
+    amount: 1
+    glow: false
+    color: "<gray>"
+    permission: "itickets.category.other.create"
+    description:
+      - "<dark_gray>Все, что не подошло под остальные категории.</dark_gray>"

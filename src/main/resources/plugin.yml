@@ -1,0 +1,166 @@
+name: ITickets
+version: '1.0.0'
+main: com.auracode.itickets.ITicketsPlugin
+description: Система тикетов и обращений для игроков и персонала.
+author: AuraCode
+api-version: '1.21'
+prefix: ITickets
+load: POSTWORLD
+
+commands:
+  iticket:
+    description: Открывает систему тикетов.
+    usage: /iticket
+    aliases: [tickets, report, reports, support, it]
+
+permissions:
+  itickets.use:
+    description: Позволяет открыть меню тикетов.
+    default: true
+  itickets.create:
+    description: Позволяет создавать тикеты.
+    default: true
+  itickets.view.own:
+    description: Позволяет смотреть свои тикеты.
+    default: true
+  itickets.comment.own:
+    description: Позволяет отвечать в своих тикетах.
+    default: true
+  itickets.close.own:
+    description: Позволяет закрывать свои тикеты.
+    default: true
+  itickets.category.bug.create:
+    description: Позволяет создавать тикеты в категории Баг.
+    default: true
+  itickets.category.player_report.create:
+    description: Позволяет создавать тикеты в категории Жалоба на игрока.
+    default: true
+  itickets.category.rules.create:
+    description: Позволяет создавать тикеты в категории Нарушение правил.
+    default: true
+  itickets.category.items.create:
+    description: Позволяет создавать тикеты в категории Потеря вещей.
+    default: true
+  itickets.category.donate.create:
+    description: Позволяет создавать тикеты в категории Донат / покупка.
+    default: true
+  itickets.category.question.create:
+    description: Позволяет создавать тикеты в категории Вопрос.
+    default: true
+  itickets.category.other.create:
+    description: Позволяет создавать тикеты в категории Другое.
+    default: true
+  itickets.staff:
+    description: Базовые права персонала тикетов.
+    default: op
+    children:
+      itickets.use: true
+      itickets.view.all: true
+      itickets.view.closed: true
+      itickets.comment.staff: true
+      itickets.assign: true
+      itickets.manage: true
+      itickets.close: true
+      itickets.reopen: true
+      itickets.teleport: true
+      itickets.notify.create: true
+      itickets.notify.comment: true
+      itickets.notify.close: true
+      itickets.notify.join: true
+      itickets.notify.rating: true
+  itickets.staff.gui:
+    description: Позволяет открыть меню персонала.
+    default: op
+  itickets.view.all:
+    description: Позволяет видеть все открытые тикеты.
+    default: op
+  itickets.view.closed:
+    description: Позволяет видеть закрытые тикеты.
+    default: op
+  itickets.view.deleted:
+    description: Позволяет видеть мягко удаленные тикеты.
+    default: op
+  itickets.comment.staff:
+    description: Позволяет персоналу отвечать в тикетах.
+    default: op
+  itickets.assign:
+    description: Позволяет назначать ответственного.
+    default: op
+  itickets.manage:
+    description: Позволяет менять важность и категорию тикетов.
+    default: op
+  itickets.close:
+    description: Позволяет закрывать чужие тикеты.
+    default: op
+  itickets.reopen:
+    description: Позволяет переоткрывать тикеты.
+    default: op
+  itickets.delete:
+    description: Позволяет мягко удалять тикеты.
+    default: op
+  itickets.purge:
+    description: Позволяет окончательно удалять тикеты.
+    default: op
+  itickets.teleport:
+    description: Позволяет телепортироваться к месту создания тикета.
+    default: op
+  itickets.stats:
+    description: Позволяет смотреть глобальную статистику тикетов.
+    default: op
+  itickets.history:
+    description: Позволяет смотреть историю тикетов администраторов.
+    default: op
+  itickets.reload:
+    description: Позволяет перезагружать конфиги плагина.
+    default: op
+  itickets.reset:
+    description: Позволяет полностью очистить базу тикетов.
+    default: op
+  itickets.export:
+    description: Позволяет экспортировать базу тикетов в файл.
+    default: op
+  itickets.ban:
+    description: Позволяет запрещать игрокам создание тикетов.
+    default: op
+  itickets.unban:
+    description: Позволяет снимать запрет создания тикетов.
+    default: op
+  itickets.bypass.cooldown:
+    description: Обход задержки создания тикетов.
+    default: op
+  itickets.bypass.limit:
+    description: Обход лимита открытых тикетов.
+    default: op
+  itickets.notify.create:
+    description: Уведомления персоналу о новых тикетах.
+    default: op
+  itickets.notify.comment:
+    description: Уведомления персоналу о новых комментариях.
+    default: op
+  itickets.notify.close:
+    description: Уведомления персоналу о закрытии тикетов.
+    default: op
+  itickets.notify.join:
+    description: Сводка тикетов для персонала при входе на сервер.
+    default: op
+  itickets.notify.rating:
+    description: Уведомления персоналу об оценке тикетов.
+    default: op
+  itickets.admin:
+    description: Полный доступ к ITickets.
+    default: op
+    children:
+      itickets.staff: true
+      itickets.staff.gui: true
+      itickets.view.deleted: true
+      itickets.delete: true
+      itickets.purge: true
+      itickets.stats: true
+      itickets.history: true
+      itickets.reload: true
+      itickets.reset: true
+      itickets.export: true
+      itickets.ban: true
+      itickets.unban: true
+      itickets.bypass.cooldown: true
+      itickets.bypass.limit: true

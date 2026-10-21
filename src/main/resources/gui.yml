@@ -1,0 +1,357 @@
+# GUI ITickets.
+# Цвет текста: <white>текст</white>, <gray>текст</gray>, <dark_gray>текст</dark_gray>.
+# Названия и описания предметов выводятся без курсива.
+# У любого предмета можно указать amount, glow и custom-model-data.
+
+ticket-list-slots:
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+
+menus:
+  main:
+    title: "<white>ITickets</white> <dark_gray>·</dark_gray> <gray>Игрок</gray>"
+    size: 36
+  staff:
+    title: "<white>ITickets</white> <dark_gray>·</dark_gray> <yellow>Персонал</yellow>"
+    size: 54
+  create:
+    title: "<white>Новый тикет</white> <dark_gray>·</dark_gray> <gray>%category% / важность %priority_name%</gray>"
+    size: 54
+  list:
+    title: "<white>Тикеты</white> <dark_gray>·</dark_gray> <gray>стр. %page%/%pages%</gray>"
+    size: 54
+  view:
+    title: "<white>Тикет #%id%</white> <dark_gray>·</dark_gray> %status_colored%"
+    size: 54
+  close_reasons:
+    title: "<white>Закрытие #%id%</white> <dark_gray>·</dark_gray> <gray>причина</gray>"
+    size: 27
+  profile:
+    title: "<white>Профиль</white> <dark_gray>·</dark_gray> <gray>%player%</gray>"
+    size: 54
+  templates:
+    title: "<white>Шаблоны ответов</white> <dark_gray>·</dark_gray> <gray>тикет #%id%</gray>"
+    size: 54
+
+items:
+  filler:
+    slot: -1
+    material: "GRAY_STAINED_GLASS_PANE"
+    name: " "
+    amount: 1
+    glow: false
+    lore: []
+
+  main:
+    create:
+      slot: 11
+      material: "WRITABLE_BOOK"
+      name: "<green>Создать обращение</green>"
+      amount: 1
+      glow: true
+      lore:
+        - "<gray>Новое обращение в поддержку.</gray>"
+        - "<dark_gray>Выбери категорию и важность.</dark_gray>"
+        - " "
+        - "<green>▸ Открыть</green>"
+    open:
+      slot: 13
+      material: "BOOK"
+      name: "<white>Мои тикеты</white>"
+      lore:
+        - "<gray>Открытые обращения и переписка.</gray>"
+        - " "
+        - "<green>▸ Открыть</green>"
+    closed:
+      slot: 15
+      material: "CHEST"
+      name: "<gray>Закрытые</gray>"
+      lore:
+        - "<dark_gray>История решенных обращений.</dark_gray>"
+        - " "
+        - "<gray>▸ Открыть</gray>"
+    staff:
+      slot: 31
+      material: "AMETHYST_SHARD"
+      name: "<yellow>Персонал</yellow>"
+      lore:
+        - "<gray>Меню обработки тикетов.</gray>"
+        - "<dark_gray>Доступно сотрудникам.</dark_gray>"
+        - " "
+        - "<yellow>▸ Открыть</yellow>"
+
+  staff:
+    open:
+      slot: 10
+      material: "LIME_DYE"
+      name: "<green>Открытые</green>"
+      lore:
+        - "<gray>Тикеты, ожидающие ответа.</gray>"
+        - "<green>▸ Открыть</green>"
+    in_progress:
+      slot: 11
+      material: "CLOCK"
+      name: "<aqua>В работе</aqua>"
+      lore:
+        - "<gray>Тикеты, взятые в работу.</gray>"
+        - "<aqua>▸ Открыть</aqua>"
+    closed:
+      slot: 12
+      material: "GRAY_DYE"
+      name: "<gray>Закрытые</gray>"
+      lore:
+        - "<dark_gray>Завершенные обращения.</dark_gray>"
+        - "<gray>▸ Открыть</gray>"
+    mine:
+      slot: 13
+      material: "NAME_TAG"
+      name: "<yellow>Назначены мне</yellow>"
+      lore:
+        - "<gray>Тикеты, где ты ответственный.</gray>"
+        - "<yellow>▸ Открыть</yellow>"
+    deleted:
+      slot: 14
+      material: "BARRIER"
+      name: "<red>Удаленные</red>"
+      lore:
+        - "<dark_gray>Мягко удаленные тикеты.</dark_gray>"
+        - "<red>▸ Открыть</red>"
+    profile:
+      slot: 15
+      material: "PLAYER_HEAD"
+      name: "<aqua>Мой профиль</aqua>"
+      lore:
+        - "<gray>Твоя статистика и обработанные тикеты.</gray>"
+        - "<aqua>▸ Открыть</aqua>"
+
+  create:
+    finalize:
+      slot: 49
+      material: "LIME_CONCRETE"
+      name: "<green>Написать обращение</green>"
+      lore:
+        - "<gray>Нажми и напиши текст в чат.</gray>"
+        - "<dark_gray>Для отмены напиши: отмена.</dark_gray>"
+
+  ticket:
+    item:
+      # Слот шаблона. Позиции тикетов задаются в ticket-list-slots.
+      slot: 0
+      material: "PAPER"
+      name: "<white>Тикет #%id%</white> <dark_gray>·</dark_gray> %status_colored%"
+      lore:
+        - "<dark_gray>Автор</dark_gray> <white>%player%</white>"
+        - "%category% <dark_gray>·</dark_gray> <gray>важность</gray> %priority_colored%"
+        - "<gray>Ответственный:</gray> <white>%assigned%</white>"
+        - "<gray>Обновлен:</gray> <white>%updated%</white>"
+        - " "
+        - "<dark_gray>%first_message%</dark_gray>"
+        - " "
+        - "<green>▸ Открыть тикет</green>"
+
+  profile:
+    head:
+      slot: 4
+      material: "PLAYER_HEAD"
+      name: "<white>%player%</white> <dark_gray>|</dark_gray> <aqua>профиль</aqua>"
+      lore:
+        - "<gray>В работе: <white>%assigned%</white></gray>"
+        - "<gray>Закрыто: <white>%handled_closed%</white> <dark_gray>|</dark_gray> <gray>оценено: <white>%handled_rated%</white></gray>"
+        - "<gray>Средний балл: <yellow>%avg%</yellow></gray>"
+        - " "
+        - "<gray>Твои тикеты: <green>%own_open%</green> открыто, <yellow>%own_closed%</yellow> закрыто, <red>%own_deleted%</red> удалено</gray>"
+        - "<dark_gray>Ниже — тикеты, где ты ответственный.</dark_gray>"
+
+  view:
+    info:
+      slot: 11
+      material: "BOOK"
+      name: "<white>Информация</white>"
+      lore:
+        - "<dark_gray>Тикет</dark_gray> <white>#%id%</white> <dark_gray>·</dark_gray> %status_colored%"
+        - "<dark_gray>Автор</dark_gray> <white>%player%</white>"
+        - "<dark_gray>Категория</dark_gray> %category%"
+        - "<dark_gray>Важность</dark_gray> %priority_colored% <dark_gray>(%priority_name%)</dark_gray>"
+        - "<dark_gray>Ответственный</dark_gray> <white>%assigned%</white>"
+        - "<dark_gray>Создан</dark_gray> <white>%created%</white>"
+        - "<dark_gray>Обновлен</dark_gray> <white>%updated%</white>"
+        - "<dark_gray>Место</dark_gray> <white>%location%</white>"
+        - "<dark_gray>Сообщений</dark_gray> <white>%messages_count%</white> <dark_gray>·</dark_gray> <dark_gray>заметок</dark_gray> <white>%notes_count%</white>"
+        - "<dark_gray>Оценка</dark_gray> %rating%"
+    take:
+      slot: 15
+      material: "PLAYER_HEAD"
+      name: "<yellow>Взять в работу</yellow>"
+      lore:
+        - "<dark_gray>Назначить тикет на себя.</dark_gray>"
+        - "<gray>Сейчас: <white>%assigned%</white></gray>"
+    taken:
+      slot: 15
+      material: "PLAYER_HEAD"
+      name: "<green>В работе у тебя</green>"
+      lore:
+        - "<dark_gray>Ты ответственный за этот тикет.</dark_gray>"
+    comment:
+      slot: 28
+      material: "FEATHER"
+      name: "<green>Ответить</green>"
+      lore:
+        - "<gray>Добавить сообщение в тикет.</gray>"
+    templates:
+      slot: 29
+      material: "KNOWLEDGE_BOOK"
+      name: "<yellow>Шаблоны</yellow>"
+      lore:
+        - "<gray>Быстрые заготовки ответов.</gray>"
+    note:
+      slot: 33
+      material: "PAPER"
+      name: "<aqua>Добавить заметку</aqua>"
+      lore:
+        - "<dark_gray>Скрытая от игрока запись.</dark_gray>"
+    priority:
+      slot: 20
+      material: "COMPARATOR"
+      name: "<yellow>Важность: %priority_colored%"
+      lore:
+        - "<gray>Нажми, чтобы изменить важность 1-5.</gray>"
+    category:
+      slot: 22
+      material: "HOPPER"
+      name: "<yellow>Категория: %category%"
+      lore:
+        - "<gray>Нажми, чтобы переключить категорию.</gray>"
+    close:
+      slot: 30
+      material: "REDSTONE"
+      name: "<red>Закрыть</red>"
+      lore:
+        - "<gray>Выбрать причину закрытия.</gray>"
+    reopen:
+      slot: 30
+      material: "LIME_DYE"
+      name: "<green>Переоткрыть</green>"
+      lore:
+        - "<gray>Вернуть тикет в работу.</gray>"
+    teleport:
+      slot: 32
+      material: "ENDER_PEARL"
+      name: "<yellow>К месту</yellow>"
+      lore:
+        - "<white>%location%</white>"
+    delete:
+      slot: 34
+      material: "BARRIER"
+      name: "<red>Удалить</red>"
+      lore:
+        - "<dark_gray>Скрыть тикет из обычных списков.</dark_gray>"
+    purge:
+      slot: 34
+      material: "LAVA_BUCKET"
+      name: "<red>Удалить навсегда</red>"
+      lore:
+        - "<dark_gray>Окончательно стереть запись.</dark_gray>"
+
+  close-reasons:
+    resolved:
+      slot: 10
+      material: "LIME_WOOL"
+      name: "<green>Проблема решена</green>"
+      reason: "Проблема решена"
+      custom: false
+      lore:
+        - "<gray>Вопрос закрыт, решение найдено.</gray>"
+    no_info:
+      slot: 11
+      material: "YELLOW_WOOL"
+      name: "<yellow>Недостаточно информации</yellow>"
+      reason: "Недостаточно информации"
+      custom: false
+      lore:
+        - "<gray>Не хватает деталей для проверки.</gray>"
+    duplicate:
+      slot: 12
+      material: "PAPER"
+      name: "<gray>Дубликат обращения</gray>"
+      reason: "Дубликат обращения"
+      custom: false
+      lore:
+        - "<dark_gray>Такая заявка уже есть.</dark_gray>"
+    not_confirmed:
+      slot: 13
+      material: "LIGHT_GRAY_WOOL"
+      name: "<gray>Нарушение не подтверждено</gray>"
+      reason: "Нарушение не подтверждено"
+      custom: false
+      lore:
+        - "<dark_gray>Доказательств недостаточно.</dark_gray>"
+    not_server:
+      slot: 14
+      material: "COMPASS"
+      name: "<yellow>Не относится к серверу</yellow>"
+      reason: "Не относится к серверу"
+      custom: false
+      lore:
+        - "<dark_gray>Проблема вне зоны поддержки.</dark_gray>"
+    cancelled:
+      slot: 15
+      material: "GRAY_DYE"
+      name: "<gray>Отменено игроком</gray>"
+      reason: "Отменено игроком"
+      custom: false
+      lore:
+        - "<dark_gray>Автор отказался от обращения.</dark_gray>"
+    custom:
+      slot: 16
+      material: "FEATHER"
+      name: "<white>Своя причина</white>"
+      reason: ""
+      custom: true
+      glow: true
+      lore:
+        - "<gray>Написать причину вручную в чат.</gray>"
+
+  navigation:
+    previous:
+      slot: 45
+      material: "ARROW"
+      name: "<white>Страница назад</white>"
+      lore:
+        - "<dark_gray>Предыдущая страница.</dark_gray>"
+    next:
+      slot: 53
+      material: "ARROW"
+      name: "<white>Страница вперед</white>"
+      lore:
+        - "<dark_gray>Следующая страница.</dark_gray>"
+    back:
+      slot: 49
+      material: "ARROW"
+      name: "<white>Вернуться</white>"
+      lore: []
